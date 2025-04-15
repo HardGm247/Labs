@@ -4,12 +4,14 @@ using System.Linq;
 
 class Train
 {
+    // Поля
     private int trainNumber;
     private string fromCity;
     private string toCity;
     private int[] seats;
 
-    public Train(int number, string from, string to, int[] seatsArray)
+    //Конструктор
+   public Train(int number, string from, string to, int[] seatsArray)
     {
         trainNumber = number;
         fromCity = from;
@@ -17,10 +19,11 @@ class Train
         seats = seatsArray;
     }
 
+    //Свойства
     public int Number => trainNumber;
     public string From => fromCity;
     public string To => toCity;
-
+    //Индексатор
     public int this[int index]
     {
         get => seats[index];
@@ -50,7 +53,7 @@ class Program
     static void Main()
     {
         List<Train> trains = new List<Train>();
-
+        //Ввод поездов
         Console.Write("Сколько поездов хотите ввести? ");
         int count = int.Parse(Console.ReadLine());
 
@@ -76,7 +79,7 @@ class Program
         // Сортировка и вывод
         Console.Write("\nВведите номер вагона для проверки: ");
         int carIndex = int.Parse(Console.ReadLine());
-
+        //Сортировка поездов
         var sorted = trains.OrderBy(t => t.Number).ToList();
         Console.WriteLine("\nПоезда с проверкой вагона:");
         foreach (var train in sorted)
