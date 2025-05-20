@@ -95,7 +95,8 @@ class Program
         string destination = Console.ReadLine();
 
         int total = trains
-            .Where(t => t.To.Equals(destination, StringComparison.OrdinalIgnoreCase))
+            .Where(t => t.To.Equals(destination,
+             StringComparison.OrdinalIgnoreCase))
             .Sum(t => t.TotalSeats);
 
         Console.WriteLine($"Общее число свободных мест до станции {destination}: {total}");
@@ -108,7 +109,8 @@ class Program
         int groupSize = int.Parse(Console.ReadLine());
 
         var suitable = trains
-            .Where(t => t.From.Equals(fromCity, StringComparison.OrdinalIgnoreCase) && t.HasGroupSpace(groupSize))
+            .Where(t => t.From.Equals(fromCity, StringComparison.OrdinalIgnoreCase)
+             && t.HasGroupSpace(groupSize))
             .ToList();
 
         if (suitable.Any())
